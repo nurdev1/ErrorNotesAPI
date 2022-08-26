@@ -1,4 +1,4 @@
-package com.odk.errornotesapi.Service.implementation;
+package com.odk.errornotesapi.Service;
 
 import com.odk.errornotesapi.Repository.RepositoryUtilisateur;
 import com.odk.errornotesapi.Service.ServiceUtilisateur;
