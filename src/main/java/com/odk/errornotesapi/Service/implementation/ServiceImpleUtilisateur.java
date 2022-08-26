@@ -4,13 +4,14 @@ import com.odk.errornotesapi.Service.ServiceUtilisateur;
 import com.odk.errornotesapi.modele.Utilisateur;
 
 public class ServiceImpleUtilisateur implements ServiceUtilisateur {
+
     @Override
-    public String Inscrire(Utilisateur Utilisateur) {
+    public Utilisateur Inscrire(Utilisateur utilisateur) {
         return null;
     }
 
     @Override
-    public String Seconnecter(Utilisateur utilisateur) {
+    public Utilisateur Seconnecter(Utilisateur utilisateur) {
         return null;
     }
 }
