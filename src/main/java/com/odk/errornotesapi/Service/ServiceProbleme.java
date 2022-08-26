@@ -2,8 +2,11 @@ package com.odk.errornotesapi.Service;
 
 import com.odk.errornotesapi.modele.Probleme;
 
+import java.util.List;
+
 public interface ServiceProbleme {
     Probleme SoumettreProbleme(Probleme probleme);
-    Probleme VoirProbleme(Probleme probleme);
-    Probleme RechercherProbleme(String titre);
+    List<Probleme> VoirProbleme(Probleme probleme);
+    List<Probleme> RechercherProblemeParMot(Long id_probleme);
+    void SupprimerProbleme(Long id);
 }
