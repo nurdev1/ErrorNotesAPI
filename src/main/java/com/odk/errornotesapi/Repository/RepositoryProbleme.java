@@ -1,4 +1,7 @@
 package com.odk.errornotesapi.Repository;
 
-public interface RepositoryProbleme {
+import com.odk.errornotesapi.modele.Probleme;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface RepositoryProbleme extends JpaRepository<Probleme, Long> {
 }

@@ -16,4 +16,10 @@ public class Commentaire {
     private String libele;
     private Date date;
 
+    @ManyToOne
+    Utilisateur utilisateur;
+
+    @ManyToOne
+    Solution solution;
+
 }

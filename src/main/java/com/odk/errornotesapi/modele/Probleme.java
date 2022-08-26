@@ -17,4 +17,11 @@ public class Probleme {
     private String technologie;
     private String etat;
 
+    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Solution solution;
+
+    @ManyToOne
+    Utilisateur utilisateur;
+
 }
