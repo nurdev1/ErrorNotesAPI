@@ -4,7 +4,7 @@ import com.odk.errornotesapi.modele.Commentaire;
 
 public interface ServiceCommentaire {
     Commentaire AjouterCommenaire(Commentaire commentaire);
-    String SupprimerCommenaire();
-    Commentaire CommenterSolution(Commentaire commentaire)
+    void SupprimerCommenaire(Long id);
+    Commentaire CommenterSolution(Commentaire commentaire);
 
 }
