@@ -5,13 +5,17 @@ import com.odk.errornotesapi.Service.ServiceCommentaire;
 import com.odk.errornotesapi.exception.exceptionCommentaire;
 import com.odk.errornotesapi.exception.exceptionProbleme;
 import com.odk.errornotesapi.modele.Commentaire;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
+@AllArgsConstructor
 public class ServiceImpleCommentaire implements ServiceCommentaire {
 
-    RepositoryCommentaire repositoryCommentaire;
+   private final RepositoryCommentaire repositoryCommentaire;
     @Override
     public Commentaire AjouterCommenaire(Commentaire commentaire) {
         return repositoryCommentaire.save(commentaire);

@@ -22,7 +22,7 @@ public class Probleme {
             cascade = CascadeType.ALL)
     private Solution solution;
 
-    @ManyToOne
-    Utilisateur utilisateur;
+  /*  @ManyToOne
+    Utilisateur utilisateur;*/
 
 }
