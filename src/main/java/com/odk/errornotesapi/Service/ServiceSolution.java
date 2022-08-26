@@ -5,6 +5,6 @@ import com.odk.errornotesapi.modele.Solution;
 
 public interface ServiceSolution {
     String soumettreSolution(Solution solution);
-    Solution Voirsolution(Solution solution);
+    Solution Voirsolution(Long id_solution);
     Commentaire Commenter(Solution solution);
 }

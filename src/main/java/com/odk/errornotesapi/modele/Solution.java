@@ -2,7 +2,7 @@ package com.odk.errornotesapi.modele;
 
 import lombok.Getter;
 import lombok.Setter;
-import net.bytebuddy.dynamic.loading.InjectionClassLoader;
+
 
 import javax.persistence.*;
 
@@ -19,6 +19,4 @@ public class Solution {
     @OneToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_probleme", nullable = false)
     private Probleme probleme;
-    @ManyToOne
-    Utilisateur utilisateur;
 }

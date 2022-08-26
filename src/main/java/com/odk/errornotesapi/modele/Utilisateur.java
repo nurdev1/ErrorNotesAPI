@@ -17,6 +17,7 @@ public class Utilisateur {
     String nom;
     String prenom;
     String email;
+    String MotdePasse;
     String numero;
     String role;
 
