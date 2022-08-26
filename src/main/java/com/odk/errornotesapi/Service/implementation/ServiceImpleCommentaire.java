@@ -14,4 +14,9 @@ public class ServiceImpleCommentaire implements ServiceCommentaire {
     public String SupprimerCommenaire() {
         return null;
     }
+
+    @Override
+    public Commentaire CommenterSolution(Commentaire commentaire) {
+        return null;
+    }
 }
