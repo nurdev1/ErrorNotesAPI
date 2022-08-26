@@ -13,6 +13,7 @@ public class Probleme {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
    // @Column(name = "id_probleme")
     private Long id_probleme;
+    private String titre;
     private String descriptionProbleme;
     private String technologie;
     private String etat;
