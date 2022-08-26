@@ -1,7 +1,9 @@
 package com.odk.errornotesapi.Service;
 
+import com.odk.errornotesapi.modele.Commentaire;
+
 public interface ServiceCommentaire {
-    String AjouterCommenaire();
+    Commentaire AjouterCommenaire(Commentaire commentaire);
     String SupprimerCommenaire();
 
 }
