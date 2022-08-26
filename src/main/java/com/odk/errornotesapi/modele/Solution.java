@@ -1,5 +1,6 @@
 package com.odk.errornotesapi.modele;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,8 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
+@Data
 public class Solution {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

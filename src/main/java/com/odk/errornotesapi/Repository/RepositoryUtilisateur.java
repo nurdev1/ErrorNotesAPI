@@ -4,4 +4,5 @@ import com.odk.errornotesapi.modele.Utilisateur;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RepositoryUtilisateur extends JpaRepository<Utilisateur,Long> {
+    boolean existeByEmail(String email);
 }
