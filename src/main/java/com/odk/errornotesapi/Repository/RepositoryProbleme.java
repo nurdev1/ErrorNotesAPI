@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface RepositoryProbleme extends JpaRepository<Probleme, Long> {
 
-    @Query(value = "SELECT * from probleme ",nativeQuery = true)
-    public List<Probleme> TrouverProblemeParMot(Long id_probleme);
+    @Query(value = "SELECT * from probleme;",nativeQuery = true)
+    public List<Probleme> TrouverProblemeParMot();
 }

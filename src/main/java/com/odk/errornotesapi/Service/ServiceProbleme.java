@@ -1,5 +1,6 @@
 package com.odk.errornotesapi.Service;
 
+import com.odk.errornotesapi.modele.Commentaire;
 import com.odk.errornotesapi.modele.Probleme;
 
 import java.util.List;
@@ -9,4 +10,5 @@ public interface ServiceProbleme {
     List<Probleme> VoirProbleme(Probleme probleme);
     List<Probleme> RechercherProblemeParMot(Long id_probleme);
     void SupprimerProbleme(Long id);
+    List<Probleme> Afficher();
 }
