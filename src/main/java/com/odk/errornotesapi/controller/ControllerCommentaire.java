@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 // Permet de donner un prefixe generale à tous mes routes
-@RequestMapping(path = "/apierrornotescommentaire")
+@RequestMapping(path = "/commentaire")
 public class ControllerCommentaire {
 
     private final ServiceCommentaire serviceCommentaire;

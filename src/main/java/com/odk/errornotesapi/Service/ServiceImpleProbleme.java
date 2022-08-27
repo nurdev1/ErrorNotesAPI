@@ -29,9 +29,9 @@ public class ServiceImpleProbleme implements ServiceProbleme {
         return repositoryProbleme.TrouverProblemeParMot();
     }
     public void SupprimerProbleme(Long id){
-        boolean admi=true;
+        boolean ADMIN_ROLE=true;
         Optional<Probleme> probleme = this.repositoryProbleme.findById(id);
-        if(!probleme.isPresent()&& admi){
+        if(!probleme.isPresent()&& ADMIN_ROLE){
             throw new exceptionProbleme(String.format("Problème  supprimé avec succès"+id));
         }
         this.repositoryProbleme.delete(probleme.get());
