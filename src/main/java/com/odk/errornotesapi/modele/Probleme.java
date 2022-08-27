@@ -11,7 +11,6 @@ import javax.persistence.*;
 public class Probleme {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   // @Column(name = "id_probleme")
     private Long id_probleme;
     private String titre;
     private String descriptionProbleme;
@@ -22,7 +21,7 @@ public class Probleme {
             cascade = CascadeType.ALL)
     private Solution solution;
 
-  /*  @ManyToOne
-    Utilisateur utilisateur;*/
+    @ManyToOne
+    Utilisateur utilisateur;
 
 }
