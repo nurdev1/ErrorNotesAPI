@@ -15,7 +15,8 @@ public class Probleme {
     private String titre;
     private String descriptionProbleme;
     private String technologie;
-    private String etat;
+    @Enumerated(EnumType.STRING)
+    private Etat etat;
 
     @OneToOne(mappedBy = "probleme", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)

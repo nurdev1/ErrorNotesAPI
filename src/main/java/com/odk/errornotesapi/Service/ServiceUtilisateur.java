@@ -2,7 +2,11 @@ package com.odk.errornotesapi.Service;
 
 import com.odk.errornotesapi.modele.Utilisateur;
 
+import java.util.List;
+
 public interface ServiceUtilisateur {
-    Utilisateur Inscrire(Utilisateur utilisateur);
-    Utilisateur Seconnecter(Utilisateur utilisateur);
+    String Inscrire(Utilisateur utilisateur);
+    String Seconnecter(Utilisateur utilisateur);
+    String Sedeconnecter(Utilisateur utilisateur);
+    List<Utilisateur> Afficher(Utilisateur utilisateur);
 }
