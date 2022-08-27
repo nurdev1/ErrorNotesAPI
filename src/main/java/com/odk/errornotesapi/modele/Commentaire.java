@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Setter
@@ -13,9 +13,8 @@ public class Commentaire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_commentaire;
-    private String libele;
-    private Date date;
-
+    private String contenu;
+    private LocalDateTime date = LocalDateTime.now();
     @ManyToOne
     Utilisateur utilisateur;
 

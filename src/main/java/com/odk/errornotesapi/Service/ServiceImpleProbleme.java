@@ -1,7 +1,6 @@
 package com.odk.errornotesapi.Service;
 
 import com.odk.errornotesapi.Repository.RepositoryProbleme;
-import com.odk.errornotesapi.Service.ServiceProbleme;
 import com.odk.errornotesapi.exception.exceptionProbleme;
 import com.odk.errornotesapi.modele.Probleme;
 import lombok.AllArgsConstructor;
@@ -21,7 +20,7 @@ public class ServiceImpleProbleme implements ServiceProbleme {
     }
 
     @Override
-    public List<Probleme> VoirProbleme(Probleme probleme) {
+    public List<Probleme> VoirProbleme() {
         return repositoryProbleme.findAll();
     }
 
