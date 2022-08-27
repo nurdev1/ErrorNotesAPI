@@ -15,7 +15,7 @@ public class ServiceImpleSolution implements ServiceSolution {
     @Override
     public String soumettreSolution(Solution solution) {
         repositorySolution.save(solution);
-        return "Solution Ajouter avec succès";
+        return "Solution ajoutée avec succès";
     }
 
     @Override
@@ -24,9 +24,5 @@ public class ServiceImpleSolution implements ServiceSolution {
         return repositorySolution.TrouverSolution(id_solution);
     }
 
-    @Override
-    public Commentaire Commenter(Solution solution) {
 
-        return null;
-    }
 }

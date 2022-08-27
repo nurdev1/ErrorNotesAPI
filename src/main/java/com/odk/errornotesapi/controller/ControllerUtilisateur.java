@@ -18,9 +18,9 @@ public class ControllerUtilisateur {
     public String Inscrire(@RequestBody Utilisateur utilisateur){
         return serviceUtilisateur.Inscrire(utilisateur);
     }
-    @GetMapping("/Seconnecter")
-    public String Seconnecter(@RequestBody Utilisateur utilisateur){
-        return serviceUtilisateur.Seconnecter(utilisateur);
+    @PostMapping("/Seconnecter/{email}/{password}")
+    public String Seconnecter(@RequestBody @PathVariable String email,@RequestBody @PathVariable String password){
+        return serviceUtilisateur.Seconnecter(email,password);
     }
     @GetMapping("/Afficher")
     public List<Utilisateur> Afficher(Utilisateur utilisateur){

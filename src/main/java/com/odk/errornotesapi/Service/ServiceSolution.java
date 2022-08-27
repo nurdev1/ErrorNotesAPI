@@ -8,5 +8,4 @@ import java.util.Optional;
 public interface ServiceSolution {
     String soumettreSolution(Solution solution);
     Solution Voirsolution(Long id_solution);
-    Commentaire Commenter(Solution solution);
 }

@@ -16,7 +16,7 @@ public class Utilisateur {
     private String nom;
     private String prenom;
     private String email;
-    private String MotdePasse;
+    private String password;
     private String numero;
     @Enumerated(EnumType.STRING)
     private Role role;
