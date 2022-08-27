@@ -23,9 +23,9 @@ public class ServiceImpleCommentaire implements ServiceCommentaire {
 
     @Override
     public void SupprimerCommenaire(Long id) {
-        boolean admi=true;
+        boolean ADMIN_ROLE=true;
         Optional<Commentaire> commentaire = this.repositoryCommentaire.findById(id);
-        if(!commentaire.isPresent()&&  admi ){
+        if(!commentaire.isPresent()&&  ADMIN_ROLE ){
                 throw new exceptionCommentaire(String.format("commentaire  supprimé avec succès"+id));
             } this.repositoryCommentaire.delete(commentaire.get()); 
     }

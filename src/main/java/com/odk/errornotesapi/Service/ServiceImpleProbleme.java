@@ -1,7 +1,6 @@
 package com.odk.errornotesapi.Service;
 
 import com.odk.errornotesapi.Repository.RepositoryProbleme;
-import com.odk.errornotesapi.Service.ServiceProbleme;
 import com.odk.errornotesapi.exception.exceptionProbleme;
 import com.odk.errornotesapi.modele.Probleme;
 import lombok.AllArgsConstructor;
@@ -21,7 +20,7 @@ public class ServiceImpleProbleme implements ServiceProbleme {
     }
 
     @Override
-    public List<Probleme> VoirProbleme(Probleme probleme) {
+    public List<Probleme> VoirProbleme() {
         return repositoryProbleme.findAll();
     }
 
@@ -30,9 +29,9 @@ public class ServiceImpleProbleme implements ServiceProbleme {
         return repositoryProbleme.TrouverProblemeParMot();
     }
     public void SupprimerProbleme(Long id){
-        boolean admi=true;
+        boolean ADMIN_ROLE=true;
         Optional<Probleme> probleme = this.repositoryProbleme.findById(id);
-        if(!probleme.isPresent()&& admi){
+        if(!probleme.isPresent()&& ADMIN_ROLE){
             throw new exceptionProbleme(String.format("Problème  supprimé avec succès"+id));
         }
         this.repositoryProbleme.delete(probleme.get());
