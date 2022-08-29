@@ -9,4 +9,5 @@ public interface ServiceUtilisateur {
     String Seconnecter(String email,String password);
     String Sedeconnecter(Utilisateur utilisateur);
     List<Utilisateur> Afficher(Utilisateur utilisateur);
+
 }

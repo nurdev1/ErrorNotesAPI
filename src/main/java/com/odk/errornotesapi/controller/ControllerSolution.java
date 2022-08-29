@@ -1,8 +1,10 @@
 package com.odk.errornotesapi.controller;
 
 import com.odk.errornotesapi.Service.ServiceSolution;
+import com.odk.errornotesapi.modele.Probleme;
 import com.odk.errornotesapi.modele.Solution;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,4 +26,7 @@ public class ControllerSolution {
     }
 
 
+    @GetMapping(path ="/information")
+    public List<Solution> TousLesInfos(){
+        return this.serviceSolution.TousLesInfos(); }
 }

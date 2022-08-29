@@ -22,5 +22,10 @@ public class ServiceImpleSolution implements ServiceSolution {
         return repositorySolution.findAll();
     }
 
+    @Override
+    public List<Solution> TousLesInfos() {
+        return repositorySolution.Infos();
+    }
+
 
 }
