@@ -1,12 +1,11 @@
 package com.odk.errornotesapi.Service;
 
 import com.odk.errornotesapi.Repository.RepositorySolution;
-import com.odk.errornotesapi.Service.ServiceSolution;
-import com.odk.errornotesapi.modele.Commentaire;
 import com.odk.errornotesapi.modele.Solution;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @AllArgsConstructor
@@ -19,9 +18,8 @@ public class ServiceImpleSolution implements ServiceSolution {
     }
 
     @Override
-    public Solution Voirsolution(Long id_solution) {
-
-        return repositorySolution.TrouverSolution(id_solution);
+    public List<Solution> Voirsolution() {
+        return repositorySolution.findAll();
     }
 
 

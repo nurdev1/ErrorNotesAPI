@@ -34,6 +34,9 @@ public class ServiceImpleUtilisateur implements ServiceUtilisateur {
        if(repositoryUtilisateur.existsByEmail(email) && repositoryUtilisateur.existsByPassword(password)){
            return "Connecter avec succès";
        };
+       if (repositoryUtilisateur.existsByEmail(email) == false){
+           return "Email non trouver";
+       }
         return "Mots de passe ou email incorrect";
     }
 
