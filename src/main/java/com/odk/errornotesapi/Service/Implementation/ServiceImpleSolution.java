@@ -1,11 +1,8 @@
-package com.odk.errornotesapi.Service.Implementation;
+package com.odk.errornotesapi.Service;
 
 import com.odk.errornotesapi.Repository.RepositorySolution;
-import com.odk.errornotesapi.Service.ServiceSolution;
-import com.odk.errornotesapi.modele.Commentaire;
 import com.odk.errornotesapi.modele.Solution;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,23 +14,13 @@ public class ServiceImpleSolution implements ServiceSolution {
     @Override
     public String soumettreSolution(Solution solution) {
         repositorySolution.save(solution);
-        return "Solution Ajouter avec succès";
+        return "Solution ajoutée avec succès";
     }
 
     @Override
     public List<Solution> Voirsolution() {
-
         return repositorySolution.findAll();
     }
 
-    @Override
-    public Commentaire Commenter(Solution solution) {
 
-        return null;
-    }
-
-    @Override
-    public List<Solution> TousLesInfos() {
-        return repositorySolution.InformationSolution();
-    }
 }

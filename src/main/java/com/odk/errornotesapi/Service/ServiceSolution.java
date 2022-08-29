@@ -9,6 +9,4 @@ import java.util.Optional;
 public interface ServiceSolution {
     String soumettreSolution(Solution solution);
     List<Solution> Voirsolution();
-    Commentaire Commenter(Solution solution);
-    List<Solution> TousLesInfos();
 }

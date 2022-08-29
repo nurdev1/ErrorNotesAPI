@@ -18,7 +18,7 @@ public class Solution {
     String methode;
     String descriptionSolution;
     String ressource;
-    @OneToOne(fetch = FetchType.LAZY, optional = false)
+    @OneToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_probleme", nullable = false)
     private Probleme probleme;
 
