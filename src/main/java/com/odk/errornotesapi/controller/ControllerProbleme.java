@@ -23,15 +23,20 @@ public class ControllerProbleme {
     public Probleme add(@RequestBody Probleme probleme){
         return this.serviceProbleme.SoumettreProbleme(probleme);
     }
-    @GetMapping("/Afficher/{mots}")
+    @GetMapping("/ChercherAvecMotCle/{mots}")
     public List<Probleme> Afficher(@PathVariable String mots){
-
+    //On creer un tableau pour mettre la liste des probleme a retrouver et un autre pour tous les probleme
         List<Probleme> problemesAretourner = new ArrayList<>();
         List<Probleme> tousProblemes = serviceProbleme.Afficher();
+        //on met le mot donnée dans un tableau et avec la fonction split qui permet de voir si le mot est present
         String[] tabMots = mots.split(":");
+        //creation d'un objet probleme et parcour de la liste tous les problemes
         for (Probleme p : tousProblemes){
+            //une variable m de type tousprobemes
             for (String m: tabMots){
+                //recherche avec la fonction containes si mot objet est dans la liste des probleme contenu dans tousProblemes
                 if (p.getTitre().contains(m) || p.getDescriptionProbleme().contains(m) || p.getTechnologie().contains(m)){
+                    //apres on ajoute l'objet dans probleme A retourner
                     problemesAretourner.add(p); }
             }
         } return problemesAretourner; }
@@ -41,10 +46,15 @@ public class ControllerProbleme {
     public List<Probleme> list(){
         return this.serviceProbleme.VoirProbleme(); }
 
-    @DeleteMapping(path = "/supprimer/{id}")
+    @DeleteMapping(path = "/supprimer/{id}/{email}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void SupprimerProbleme(@PathVariable long id){
-        this.serviceProbleme.SupprimerProbleme(id); }
+    public void SupprimerProbleme(@PathVariable long id,@PathVariable String email){
+        this.serviceProbleme.SupprimerProbleme(id,email); }
+
+    @GetMapping(path ="/problemeetsolution")
+    @ResponseStatus(HttpStatus.OK)
+    List<Probleme> ProblemeSolution(){
+        return this.serviceProbleme.ProblemeAvecSolution(); }
 
 
 

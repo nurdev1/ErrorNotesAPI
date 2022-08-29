@@ -1,7 +1,8 @@
-package com.odk.errornotesapi.Service;
+package com.odk.errornotesapi.Service.Implementation;
 
 import com.odk.errornotesapi.Repository.RepositoryUtilisateur;
 
+import com.odk.errornotesapi.Service.ServiceUtilisateur;
 import com.odk.errornotesapi.modele.Utilisateur;
 
 import lombok.AllArgsConstructor;
@@ -24,8 +25,8 @@ public class ServiceImpleUtilisateur implements ServiceUtilisateur {
     }
 
     @Override
-    public String Seconnecter(Utilisateur utilisateur) {
-        return null;
+    public String Seconnecter() {
+       ;
     }
 
     @Override

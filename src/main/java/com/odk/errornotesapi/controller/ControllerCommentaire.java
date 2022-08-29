@@ -29,8 +29,8 @@ public class ControllerCommentaire {
         return serviceCommentaire.Afficher();
     }
 
-    @DeleteMapping(path = "/supprimer/{id}")
+    @DeleteMapping(path = "/supprimer/{id}/{email}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void SupprimerProbleme(@PathVariable long id){
+    public void SupprimerCommentaire(@PathVariable long id){
         this.serviceCommentaire.SupprimerCommenaire(id); }
 }

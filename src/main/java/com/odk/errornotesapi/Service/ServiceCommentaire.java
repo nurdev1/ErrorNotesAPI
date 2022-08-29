@@ -7,7 +7,7 @@ import java.util.List;
 public interface ServiceCommentaire {
     Commentaire AjouterCommenaire(Commentaire commentaire);
     void SupprimerCommenaire(Long id);
-    Commentaire CommenterSolution(Commentaire commentaire);
+    Commentaire CommenterUnCommentaire(Commentaire commentaire);
     List<Commentaire> Afficher();
 
 }

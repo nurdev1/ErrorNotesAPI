@@ -1,4 +1,4 @@
-package com.odk.errornotesapi.Service;
+package com.odk.errornotesapi.Service.Implementation;
 
 import com.odk.errornotesapi.Repository.RepositoryCommentaire;
 import com.odk.errornotesapi.Service.ServiceCommentaire;
@@ -23,16 +23,16 @@ public class ServiceImpleCommentaire implements ServiceCommentaire {
 
     @Override
     public void SupprimerCommenaire(Long id) {
-        boolean ADMIN_ROLE=true;
+        boolean admi=true;
         Optional<Commentaire> commentaire = this.repositoryCommentaire.findById(id);
-        if(!commentaire.isPresent()&&  ADMIN_ROLE ){
+        if(!commentaire.isPresent()&&  admi ){
                 throw new exceptionCommentaire(String.format("commentaire  supprimé avec succès"+id));
             } this.repositoryCommentaire.delete(commentaire.get()); 
     }
 
 
     @Override
-    public Commentaire CommenterSolution(Commentaire commentaire) {
+    public Commentaire CommenterUnCommentaire(Commentaire commentaire) {
         return null;
     }
 

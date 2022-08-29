@@ -10,4 +10,6 @@ public interface RepositoryProbleme extends JpaRepository<Probleme, Long> {
 
     @Query(value = "SELECT * from probleme;",nativeQuery = true)
     public List<Probleme> TrouverProblemeParMot();
+    @Query(value = "SELECT titre,description_probleme,description,methode,technologie,ressource,etat FROM probleme,solution where probleme.id_probleme=solution.id_probleme;",nativeQuery = true )
+    public List<Probleme> ProblemeSolution();
 }

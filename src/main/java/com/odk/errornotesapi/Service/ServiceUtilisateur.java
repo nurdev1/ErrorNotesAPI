@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ServiceUtilisateur {
     String Inscrire(Utilisateur utilisateur);
-    String Seconnecter(Utilisateur utilisateur);
+    String Seconnecter();
     String Sedeconnecter(Utilisateur utilisateur);
     List<Utilisateur> Afficher(Utilisateur utilisateur);
 }

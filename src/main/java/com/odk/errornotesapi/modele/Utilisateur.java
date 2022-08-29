@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -20,5 +22,12 @@ public class Utilisateur {
     private String numero;
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToMany(
+            cascade = CascadeType.ALL)
+    @JoinColumn(name = "id_utilisateur")
+    List<Commentaire> commentaire = new ArrayList<>();
+
+
 
 }

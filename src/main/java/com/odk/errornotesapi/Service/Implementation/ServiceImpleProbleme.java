@@ -1,11 +1,13 @@
-package com.odk.errornotesapi.Service;
+package com.odk.errornotesapi.Service.Implementation;
 
 import com.odk.errornotesapi.Repository.RepositoryProbleme;
+import com.odk.errornotesapi.Service.ServiceProbleme;
 import com.odk.errornotesapi.exception.exceptionProbleme;
 import com.odk.errornotesapi.modele.Probleme;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,10 +30,10 @@ public class ServiceImpleProbleme implements ServiceProbleme {
     public List<Probleme> RechercherProblemeParMot(Long id_probleme) {
         return repositoryProbleme.TrouverProblemeParMot();
     }
-    public void SupprimerProbleme(Long id){
-        boolean ADMIN_ROLE=true;
+    public void SupprimerProbleme(Long id,String email){
+        boolean e=Boolean.parseBoolean(email);
         Optional<Probleme> probleme = this.repositoryProbleme.findById(id);
-        if(!probleme.isPresent()&& ADMIN_ROLE){
+        if(!probleme.isPresent()&& e){
             throw new exceptionProbleme(String.format("Problème  supprimé avec succès"+id));
         }
         this.repositoryProbleme.delete(probleme.get());
@@ -42,5 +44,11 @@ public class ServiceImpleProbleme implements ServiceProbleme {
     public List<Probleme> Afficher() {
         return repositoryProbleme.findAll();
     }
+
+    @Override
+    public List<Probleme> ProblemeAvecSolution() {
+        return repositoryProbleme.ProblemeSolution();
+    }
+
 
 }
