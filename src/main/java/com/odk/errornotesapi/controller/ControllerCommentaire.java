@@ -30,7 +30,7 @@ public class ControllerCommentaire {
     }
 
     @DeleteMapping(path = "/supprimer/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+    //  @ResponseStatus(HttpStatus.NO_CONTENT)
     public void SupprimerProbleme(@PathVariable long id){
         this.serviceCommentaire.SupprimerCommenaire(id); }
 }

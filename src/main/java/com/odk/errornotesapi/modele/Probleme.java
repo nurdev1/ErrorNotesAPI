@@ -11,14 +11,14 @@ import javax.persistence.*;
 public class Probleme {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_probleme;
+    private Long idprobleme;
     private String titre;
     private String descriptionProbleme;
     private String technologie;
     @Enumerated(EnumType.STRING)
     private Etat etat;
 
-    @OneToOne(mappedBy = "probleme", fetch = FetchType.LAZY,
+    @OneToOne(mappedBy = "probleme", fetch = FetchType.EAGER,
             cascade = CascadeType.ALL)
     private Solution solution;
 

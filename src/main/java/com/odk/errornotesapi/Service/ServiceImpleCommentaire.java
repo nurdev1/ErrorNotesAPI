@@ -1,9 +1,7 @@
 package com.odk.errornotesapi.Service;
 
 import com.odk.errornotesapi.Repository.RepositoryCommentaire;
-import com.odk.errornotesapi.Service.ServiceCommentaire;
 import com.odk.errornotesapi.exception.exceptionCommentaire;
-import com.odk.errornotesapi.exception.exceptionProbleme;
 import com.odk.errornotesapi.modele.Commentaire;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

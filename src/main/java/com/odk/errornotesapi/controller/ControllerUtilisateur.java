@@ -14,17 +14,18 @@ import java.util.List;
 public class ControllerUtilisateur {
     @Autowired
     private final ServiceUtilisateur serviceUtilisateur;
+
     @PostMapping("/Inscrire")
-    public String Inscrire(@RequestBody Utilisateur utilisateur){
+    public Utilisateur Inscrire(@RequestBody Utilisateur utilisateur){
         return serviceUtilisateur.Inscrire(utilisateur);
     }
-    @PostMapping("/Seconnecter/{email}/{password}")
-    public String Seconnecter(@RequestBody @PathVariable String email,@RequestBody @PathVariable String password){
+    @PostMapping("/Seconnecter")
+    public Utilisateur Seconnecter(@PathVariable String email, @PathVariable String password){
         return serviceUtilisateur.Seconnecter(email,password);
     }
     @GetMapping("/Afficher")
-    public List<Utilisateur> Afficher(Utilisateur utilisateur){
-        return serviceUtilisateur.Afficher(utilisateur);
+    public List<Utilisateur> Afficher(){
+        return serviceUtilisateur.Afficher();
     }
 
 }
