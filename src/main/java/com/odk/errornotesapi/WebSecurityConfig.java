@@ -1,6 +1,7 @@
 package com.odk.errornotesapi;
 
 import com.odk.errornotesapi.Service.ServiceUtilisateur;
+import com.odk.errornotesapi.Service.UserDetailsServiceImpl;
 import com.odk.errornotesapi.filters.JwtAuthentificationFilter;
 import com.odk.errornotesapi.filters.JwtAutorizationFilter;
 import com.odk.errornotesapi.modele.Utilisateur;
@@ -30,25 +31,12 @@ import java.util.Collection;
 @AllArgsConstructor
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(
-        // securedEnabled = true,
-        // jsr250Enabled = true,
-        prePostEnabled = true)
+@EnableGlobalMethodSecurity(prePostEnabled = true,securedEnabled = true)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    private final ServiceUtilisateur serviceUtilisateur;
+    private final UserDetailsServiceImpl userDetailsService;
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(new UserDetailsService() {
-            @Override
-            public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-                Utilisateur utilisateur = serviceUtilisateur.loadUserByUsername(username);
-                Collection<GrantedAuthority> authorities = new ArrayList<>();
-                utilisateur.getRole().forEach(r -> {
-                    authorities.add(new SimpleGrantedAuthority(r.getRoleName()));
-                });
-                return new User(utilisateur.getUsername(), utilisateur.getPassword(), authorities);
-            }
-        });
+        auth.userDetailsService(userDetailsService);
     }
 
     @Override
@@ -57,7 +45,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         //http.formLogin();
         //http.authorizeRequests().antMatchers("/Utilisateur/Afficher/**").hasAuthority("ADMIN_ROLE");
-        //http.authorizeRequests().antMatchers(HttpMethod.POST,"/Utilisateur/Inscrire/**").permitAll();
+        http.authorizeRequests().antMatchers(HttpMethod.POST,"/Utilisateur/refreshToken/**","/Utilisateur/Inscrire/**").permitAll();
         http.authorizeRequests().anyRequest().authenticated() ;
         http.addFilter(new JwtAuthentificationFilter(authenticationManagerBean()));
         http.addFilterBefore(new JwtAutorizationFilter(), UsernamePasswordAuthenticationFilter.class);
