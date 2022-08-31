@@ -23,7 +23,7 @@ import java.util.List;
 public class Solution {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id_solution;
+    Long idsolution;
     String methode;
     String descriptionSolution;
     String ressource;
