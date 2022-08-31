@@ -15,7 +15,6 @@ import java.util.List;
 public class ServiceImpleProbleme implements ServiceProbleme {
 
     private final RepositoryProbleme repositoryProbleme;
-    private final RepositorySolution repositorySolution;
     private final RepositoryCommentaire repositoryCommentaire;
     @Override
     public Probleme SoumettreProbleme(Probleme probleme) {
