@@ -5,6 +5,7 @@ import com.odk.errornotesapi.Service.ServiceProbleme;
 import com.odk.errornotesapi.modele.Probleme;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -43,7 +44,7 @@ public class ControllerProbleme {
     @GetMapping(path ="/list")
     public List<Probleme> VoirProbleme(){
         return this.serviceProbleme.VoirProbleme(); }
-
+    @PreAuthorize("hasAuthotity('ADMIN_ROLE')")
     @DeleteMapping(path = "/supprimer/{id}")
     public String SupprimerProbleme(@PathVariable long id){
         serviceProbleme.SupprimerProbleme(id);
