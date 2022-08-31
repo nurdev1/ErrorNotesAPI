@@ -10,10 +10,7 @@ import com.odk.errornotesapi.Service.ServiceUtilisateur;
 import com.odk.errornotesapi.modele.Utilisateur;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +26,7 @@ public class ControllerUtilisateur {
     @Autowired
     private final ServiceUtilisateur serviceUtilisateur;
 
+
     @PostMapping("/Inscrire")
     public Utilisateur Inscrire(@RequestBody Utilisateur utilisateur){
         return serviceUtilisateur.Inscrire(utilisateur);
@@ -37,6 +35,7 @@ public class ControllerUtilisateur {
     public Utilisateur Seconnecter(@PathVariable String email, @PathVariable String password){
         return serviceUtilisateur.Seconnecter(email,password);
     }
+    @PreAuthorize("hasAuthority('ADMIN_ROLE')")
     @GetMapping("/Afficher")
     public List<Utilisateur> Afficher(){
         return serviceUtilisateur.Afficher();

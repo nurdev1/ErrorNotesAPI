@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable();
         http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
         //http.formLogin();
-        //http.authorizeRequests().antMatchers("/Utilisateur/Afficher/**").hasAuthority("ADMIN_ROLE");
+        http.authorizeRequests().antMatchers(HttpMethod.GET, "/Utilisateur/Afficher").permitAll();
         http.authorizeRequests().antMatchers(HttpMethod.POST,"/Utilisateur/refreshToken/**","/Utilisateur/Inscrire/**").permitAll();
         http.authorizeRequests().antMatchers("/swagger-ui*/**","/ErrorNotesApi-openapi/**").permitAll();
         http.authorizeRequests()
