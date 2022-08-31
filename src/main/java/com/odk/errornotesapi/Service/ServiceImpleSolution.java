@@ -25,7 +25,7 @@ public class ServiceImpleSolution implements ServiceSolution {
 
     public String Supprimer(Long id_solution) {
 
-            repositorySolution.deleteByIdsolution(id_solution);
+            repositorySolution.deleteById(id_solution);
             return "Solution avec id = " +id_solution+" supprimé avec succès";
     }
 
