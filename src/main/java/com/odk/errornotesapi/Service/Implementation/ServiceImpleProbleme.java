@@ -41,13 +41,7 @@ public class ServiceImpleProbleme implements ServiceProbleme {
         return repositoryProbleme.findAll();
     }
 
-    @Override
-    public void Supprimer(Long id) {
-        repositoryProbleme.deleteById(id);
-        repositoryCommentaire.deleteById(id);
-        repositoryCommentaire.deleteById(id);
 
-    }
 
 
 }

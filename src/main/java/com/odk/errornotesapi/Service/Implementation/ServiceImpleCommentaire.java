@@ -25,11 +25,6 @@ public class ServiceImpleCommentaire implements ServiceCommentaire {
 
 
     @Override
-    public Commentaire CommenterUnCommentaire(Commentaire commentaire) {
-        return null;
-    }
-
-    @Override
     public List<Commentaire> Afficher() {
         return repositoryCommentaire.findAll();
     }

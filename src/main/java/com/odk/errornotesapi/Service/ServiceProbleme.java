@@ -10,5 +10,4 @@ public interface ServiceProbleme {
     List<Probleme> RechercherProblemeParMot(Long id_probleme);
     void SupprimerProbleme(Long id);
     List<Probleme> Afficher();
-    void Supprimer(Long id);
 }

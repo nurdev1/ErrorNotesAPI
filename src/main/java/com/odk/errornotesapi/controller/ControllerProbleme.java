@@ -50,11 +50,5 @@ public class ControllerProbleme {
 
     return "probleme supprimé avec succès";}
 
-    @DeleteMapping(path = "/supprimertous/{id}")
-    public String Supprimer(@PathVariable(name = "id") Long id){
-        serviceProbleme.Supprimer(id);
-        return "supprimé avec succès";
-
     }
 
-}
