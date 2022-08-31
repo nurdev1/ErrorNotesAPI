@@ -36,6 +36,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         //http.authorizeRequests().antMatchers("/Utilisateur/Afficher/**").hasAuthority("ADMIN_ROLE");
         http.authorizeRequests().antMatchers(HttpMethod.POST,"/Utilisateur/refreshToken/**","/Utilisateur/Inscrire/**").permitAll();
         http.authorizeRequests().antMatchers("/swagger-ui*/**","/ErrorNotesApi-openapi/**").permitAll();
+        http.authorizeRequests()
+                .antMatchers(
+                        "/v2/api-docs",
+                        "/swagger-resources",
+                        "/swagger-resources/configuration/ui",
+                        "/swagger-resources/configuration/security")
+                .permitAll();
         http.authorizeRequests().anyRequest().authenticated() ;
         http.addFilter(new JwtAuthentificationFilter(authenticationManagerBean()));
         http.addFilterBefore(new JwtAutorizationFilter(), UsernamePasswordAuthenticationFilter.class);
