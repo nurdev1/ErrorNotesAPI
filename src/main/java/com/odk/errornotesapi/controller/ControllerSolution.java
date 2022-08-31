@@ -24,9 +24,12 @@ public class ControllerSolution {
     public List<Solution> VoirSolution(){
         return serviceSolution.Voirsolution();
     }
+    @DeleteMapping(path = "/supprimer/{id}")
+    public String supprimerSolution(@PathVariable(name = "id") Long id){
+         serviceSolution.supprimerSolution(id);
+        return "Solution supprimer avec succès";
+    }
 
 
-    @GetMapping(path ="/information")
-    public List<Solution> TousLesInfos(){
-        return this.serviceSolution.TousLesInfos(); }
+
 }

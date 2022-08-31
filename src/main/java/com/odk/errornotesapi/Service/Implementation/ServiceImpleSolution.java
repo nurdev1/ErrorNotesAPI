@@ -1,6 +1,7 @@
-package com.odk.errornotesapi.Service;
+package com.odk.errornotesapi.Service.Implementation;
 
 import com.odk.errornotesapi.Repository.RepositorySolution;
+import com.odk.errornotesapi.Service.ServiceSolution;
 import com.odk.errornotesapi.modele.Solution;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -23,8 +24,8 @@ public class ServiceImpleSolution implements ServiceSolution {
     }
 
     @Override
-    public List<Solution> TousLesInfos() {
-        return repositorySolution.Infos();
+    public void supprimerSolution(Long id) {
+        repositorySolution.deleteById(id);
     }
 
 

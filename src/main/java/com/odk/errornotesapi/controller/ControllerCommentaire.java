@@ -3,7 +3,6 @@ package com.odk.errornotesapi.controller;
 import com.odk.errornotesapi.Service.ServiceCommentaire;
 import com.odk.errornotesapi.modele.Commentaire;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,16 +20,18 @@ public class ControllerCommentaire {
         this.serviceCommentaire=serviceCommentaire;
     }
     @PostMapping("/ajout")
-    @ResponseStatus(HttpStatus.CREATED)
     public Commentaire add(@RequestBody Commentaire commentaire){
         return this.serviceCommentaire.AjouterCommenaire(commentaire);}
-    @GetMapping("/Afficher")
+    @GetMapping("/list")
     public List<Commentaire> Afficher(){
         return serviceCommentaire.Afficher();
     }
+    @DeleteMapping("/supprimer/{id}")
+    public String SupprimerCommenaire(@PathVariable(name = "id") Long id) {
+        serviceCommentaire.SupprimerCommenaire(id);
 
-    @DeleteMapping(path = "/supprimer/{id}/{email}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void SupprimerCommentaire(@PathVariable long id){
-        this.serviceCommentaire.SupprimerCommenaire(id); }
+        return "commentaire supprimé avec succès";
+    }
+
+
 }

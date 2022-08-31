@@ -1,31 +1,31 @@
 package com.odk.errornotesapi.modele;
 
+import io.swagger.annotations.Api;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Setter
 @Getter
+@Api("API pour les opérations CRUD sur les commentaires.")
+
+@RestController
 public class Commentaire {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_commentaire;
     private String contenu;
-    private LocalDateTime date = LocalDateTime.now();
+    private LocalDateTime dateCommentaire = LocalDateTime.now();
 
-    /*@ManyToOne(
-            cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_commentaire")
-    List<Utilisateur> utilisateur = new ArrayList<>();
+   @ManyToOne
+   private Solution solution;
 
-    @ManyToOne(
-            cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_commentaire")
-    List<Solution> solution = new ArrayList<>();*/
+   @ManyToOne
+   private Utilisateur utilisateur;
+
 
 }

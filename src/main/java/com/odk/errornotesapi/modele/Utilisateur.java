@@ -1,16 +1,19 @@
 package com.odk.errornotesapi.modele;
 
 
+import io.swagger.annotations.Api;
 import lombok.Data;
-
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+
 
 @Entity
 @Data
-public class Utilisateur {
+@Api("API pour les opérations CRUD sur les utilisateurs.")
+
+@RestController
+public class Utilisateur  {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_utilisateur;
@@ -21,12 +24,5 @@ public class Utilisateur {
     private String numero;
     @Enumerated(EnumType.STRING)
     private Role role;
-
-    @OneToMany(
-            cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_utilisateur")
-    List<Commentaire> commentaire = new ArrayList<>();
-
-
 
 }

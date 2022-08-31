@@ -2,8 +2,11 @@ package com.odk.errornotesapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
+//Pour générer la documentation
+@EnableSwagger2
 public class ErrorNotesApiApplication {
 
     public static void main(String[] args) {

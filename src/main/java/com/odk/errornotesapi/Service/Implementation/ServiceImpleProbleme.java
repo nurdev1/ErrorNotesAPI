@@ -1,21 +1,22 @@
 package com.odk.errornotesapi.Service.Implementation;
 
+import com.odk.errornotesapi.Repository.RepositoryCommentaire;
 import com.odk.errornotesapi.Repository.RepositoryProbleme;
+import com.odk.errornotesapi.Repository.RepositorySolution;
 import com.odk.errornotesapi.Service.ServiceProbleme;
-import com.odk.errornotesapi.exception.exceptionProbleme;
 import com.odk.errornotesapi.modele.Probleme;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @AllArgsConstructor
 public class ServiceImpleProbleme implements ServiceProbleme {
 
     private final RepositoryProbleme repositoryProbleme;
+    private final RepositorySolution repositorySolution;
+    private final RepositoryCommentaire repositoryCommentaire;
     @Override
     public Probleme SoumettreProbleme(Probleme probleme) {
         return repositoryProbleme.save(probleme);
@@ -30,13 +31,9 @@ public class ServiceImpleProbleme implements ServiceProbleme {
     public List<Probleme> RechercherProblemeParMot(Long id_probleme) {
         return repositoryProbleme.TrouverProblemeParMot();
     }
-    public void SupprimerProbleme(Long id,String email){
-        boolean e=Boolean.parseBoolean(email);
-        Optional<Probleme> probleme = this.repositoryProbleme.findById(id);
-        if(!probleme.isPresent()&& e){
-            throw new exceptionProbleme(String.format("Problème  supprimé avec succès"+id));
-        }
-        this.repositoryProbleme.delete(probleme.get());
+    public void SupprimerProbleme(Long id){
+
+        repositoryProbleme.deleteById(id);
 
     }
 
@@ -46,8 +43,11 @@ public class ServiceImpleProbleme implements ServiceProbleme {
     }
 
     @Override
-    public List<Probleme> ProblemeAvecSolution() {
-        return repositoryProbleme.ProblemeSolution();
+    public void Supprimer(Long id) {
+        repositoryProbleme.deleteById(id);
+        repositoryCommentaire.deleteById(id);
+        repositoryCommentaire.deleteById(id);
+
     }
 
 

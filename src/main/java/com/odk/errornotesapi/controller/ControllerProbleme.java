@@ -19,7 +19,6 @@ public class ControllerProbleme {
     final private ServiceProbleme serviceProbleme;
 
     @PostMapping("/ajout")
-    @ResponseStatus(HttpStatus.CREATED)
     public Probleme add(@RequestBody Probleme probleme){
         return this.serviceProbleme.SoumettreProbleme(probleme);
     }
@@ -28,7 +27,7 @@ public class ControllerProbleme {
     //On creer un tableau pour mettre la liste des probleme a retrouver et un autre pour tous les probleme
         List<Probleme> problemesAretourner = new ArrayList<>();
         List<Probleme> tousProblemes = serviceProbleme.Afficher();
-        //on met le mot donnée dans un tableau et avec la fonction split qui permet de voir si le mot est present
+        //on met le mot donnée dans un tableau et avec la fonction split qui permet de decouper chaque mot
         String[] tabMots = mots.split(":");
         //creation d'un objet probleme et parcour de la liste tous les problemes
         for (Probleme p : tousProblemes){
@@ -42,20 +41,20 @@ public class ControllerProbleme {
         } return problemesAretourner; }
 
     @GetMapping(path ="/list")
-    @ResponseStatus(HttpStatus.OK)
-    public List<Probleme> list(){
+    public List<Probleme> VoirProbleme(){
         return this.serviceProbleme.VoirProbleme(); }
 
-    @DeleteMapping(path = "/supprimer/{id}/{email}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void SupprimerProbleme(@PathVariable long id,@PathVariable String email){
-        this.serviceProbleme.SupprimerProbleme(id,email); }
+    @DeleteMapping(path = "/supprimer/{id}")
+    public String SupprimerProbleme(@PathVariable long id){
+        serviceProbleme.SupprimerProbleme(id);
 
-    @GetMapping(path ="/problemeetsolution")
-    @ResponseStatus(HttpStatus.OK)
-    List<Probleme> ProblemeSolution(){
-        return this.serviceProbleme.ProblemeAvecSolution(); }
+    return "probleme supprimé avec succès";}
 
+    @DeleteMapping(path = "/supprimertous/{id}")
+    public String Supprimer(@PathVariable(name = "id") Long id){
+        serviceProbleme.Supprimer(id);
+        return "supprimé avec succès";
 
+    }
 
 }

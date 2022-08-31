@@ -1,16 +1,14 @@
-package com.odk.errornotesapi.Service;
+package com.odk.errornotesapi.Service.Implementation;
 
 import com.odk.errornotesapi.Repository.RepositoryUtilisateur;
 
-import com.odk.errornotesapi.modele.Role;
+import com.odk.errornotesapi.Service.ServiceUtilisateur;
 import com.odk.errornotesapi.modele.Utilisateur;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @AllArgsConstructor
 @Service
