@@ -7,13 +7,11 @@ import com.auth0.jwt.interfaces.DecodedJWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.odk.errornotesapi.JWTUtil;
 import com.odk.errornotesapi.Service.ServiceUtilisateur;
+import com.odk.errornotesapi.modele.Role;
 import com.odk.errornotesapi.modele.Utilisateur;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,9 +24,9 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/Utilisateur")
 public class ControllerUtilisateur {
-    @Autowired
     private final ServiceUtilisateur serviceUtilisateur;
 
+    //methode permettant de s'incrire
     @PostMapping("/Inscrire")
     public Utilisateur Inscrire(@RequestBody Utilisateur utilisateur){
         return serviceUtilisateur.Inscrire(utilisateur);
@@ -37,16 +35,26 @@ public class ControllerUtilisateur {
     public Utilisateur Seconnecter(@PathVariable String email, @PathVariable String password){
         return serviceUtilisateur.Seconnecter(email,password);
     }
+    //Permettre à l'utilisateur avec l'ADMIN_ROLE
+    @PreAuthorize("hasAuthority('ADMIN_ROLE')")
     @GetMapping("/Afficher")
     public List<Utilisateur> Afficher(){
         return serviceUtilisateur.Afficher();
     }
-
+    //methode permettant de savoir qui est connecter
     @GetMapping("/profile")
     public Utilisateur profile(Principal principal){
         return serviceUtilisateur.loadUserByUsername(principal.getName());
     }
-
+    @PostMapping("/AjouterRole")
+    public Role addRole(@RequestBody Role role){
+           return serviceUtilisateur.addNewRole(role);
+    }
+    @PostMapping("/addRoleToUser")
+    public void addRoleToUser(@RequestBody String username,@RequestBody String roleName){
+        serviceUtilisateur.addRoleToUser(username, roleName);
+    }
+    //Une methode permettant de rafraichir le token
     @GetMapping("/refreshToken")
     public void refreshToken(HttpServletRequest request, HttpServletResponse response) throws Exception{
         String auhToken = request.getHeader(JWTUtil.AUTH_HEADER);

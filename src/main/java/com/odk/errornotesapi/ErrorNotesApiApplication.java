@@ -26,7 +26,7 @@ public class ErrorNotesApiApplication {
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
+/*
     @Bean
     CommandLineRunner start(ServiceUtilisateur serviceUtilisateur) {
         return args -> {
@@ -38,5 +38,7 @@ public class ErrorNotesApiApplication {
             serviceUtilisateur.addRoleToUser("ALASKO","USER_ROLE");
         };
     }
+
+ */
 }
 

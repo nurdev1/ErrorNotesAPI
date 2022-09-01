@@ -22,7 +22,7 @@ public class ControllerCommentaire {
     @PostMapping("/ajout")
     public Commentaire add(@RequestBody Commentaire commentaire){
         return this.serviceCommentaire.AjouterCommenaire(commentaire);}
-    @GetMapping("/list")
+    @GetMapping("/Afficher")
     public List<Commentaire> Afficher(){
         return serviceCommentaire.Afficher();
     }

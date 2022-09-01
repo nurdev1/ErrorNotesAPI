@@ -26,7 +26,9 @@ public class ServiceImpleUtilisateur implements ServiceUtilisateur {
     //Creation d'un nouveau compte
     @Override
     public Utilisateur Inscrire(Utilisateur utilisateur) {
+        //recuperatin du mot de passe
         String pw = utilisateur.getPassword();
+        //Encodage du mot de passe
         utilisateur.setPassword(passwordEncoder.encode(pw));
         return  repositoryUtilisateur.save(utilisateur);
 
@@ -34,16 +36,14 @@ public class ServiceImpleUtilisateur implements ServiceUtilisateur {
 
     @Override
     public Utilisateur Seconnecter(String email,String password) {
-     /*  if(repositoryUtilisateur.existsByEmail(email) && repositoryUtilisateur.existsByPassword(password)){
+      /* if(repositoryUtilisateur.existsByEmail(email) && repositoryUtilisateur.existsByPassword(password)){
            return repositoryUtilisateur.findByEmail(email);
        };
        if (repositoryUtilisateur.existsByEmail(email) == false){
            return null;
-       }
+       } */
         return null;
 
-      */
-        return null;
     }
 
 

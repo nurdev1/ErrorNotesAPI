@@ -20,7 +20,7 @@ public class ControllerSolution {
     public String soumettreSolution(@RequestBody Solution solution){
         return serviceSolution.soumettreSolution(solution);
     }
-    @GetMapping("/AfficherSolution")
+    @GetMapping("/Afficher")
     public List<Solution> VoirSolution(){
         return serviceSolution.Voirsolution();
     }

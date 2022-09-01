@@ -40,7 +40,7 @@ public class ControllerProbleme {
             }
         } return problemesAretourner; }
 
-    @GetMapping(path ="/list")
+    @GetMapping(path ="/Afficher")
     public List<Probleme> VoirProbleme(){
         return this.serviceProbleme.VoirProbleme(); }
 
