@@ -5,6 +5,7 @@ import com.odk.errornotesapi.Service.ServiceProbleme;
 import com.odk.errornotesapi.modele.Probleme;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -12,7 +13,7 @@ import java.util.List;
 
 @RestController
 // Permet de donner un prefixe generale à tous mes routes
-@RequestMapping(path = "/probleme")
+@RequestMapping(path = "/Probleme")
 @AllArgsConstructor
 public class ControllerProbleme {
 
@@ -43,7 +44,7 @@ public class ControllerProbleme {
     @GetMapping(path ="/Afficher")
     public List<Probleme> VoirProbleme(){
         return this.serviceProbleme.VoirProbleme(); }
-
+    @PreAuthorize("hasAuthotity('ADMIN_ROLE')")
     @DeleteMapping(path = "/supprimer/{id}")
     public String SupprimerProbleme(@PathVariable long id){
         serviceProbleme.SupprimerProbleme(id);
