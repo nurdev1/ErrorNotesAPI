@@ -23,7 +23,7 @@ public class ControllerProbleme {
         return this.serviceProbleme.SoumettreProbleme(probleme);
     }
     @GetMapping("/ChercherAvecMotCle/{mots}")
-    public List<Probleme> Afficher(@PathVariable String mots){
+    public List<Probleme> Chercher(@PathVariable String mots){
     //On creer un tableau pour mettre la liste des probleme a retrouver et un autre pour tous les probleme
         List<Probleme> problemesAretourner = new ArrayList<>();
         List<Probleme> tousProblemes = serviceProbleme.Afficher();
@@ -40,11 +40,11 @@ public class ControllerProbleme {
             }
         } return problemesAretourner; }
 
-    @GetMapping(path ="/list")
+    @GetMapping(path ="/Afficher")
     public List<Probleme> VoirProbleme(){
         return this.serviceProbleme.VoirProbleme(); }
 
-    @DeleteMapping(path = "/supprimer/{id}")
+    @DeleteMapping(path = "/Supprimer/{id}")
     public String SupprimerProbleme(@PathVariable long id){
         serviceProbleme.SupprimerProbleme(id);
 

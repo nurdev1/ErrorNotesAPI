@@ -24,7 +24,7 @@ public class ControllerSolution {
     public List<Solution> VoirSolution(){
         return serviceSolution.Voirsolution();
     }
-    @DeleteMapping(path = "/supprimer/{id}")
+    @DeleteMapping(path = "/Supprimer/{id}")
     public String supprimerSolution(@PathVariable(name = "id") Long id){
          serviceSolution.supprimerSolution(id);
         return "Solution supprimer avec succès";
