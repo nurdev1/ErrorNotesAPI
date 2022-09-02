@@ -40,12 +40,13 @@ public class ServiceImpleProbleme implements ServiceProbleme {
     public String SupprimerProbleme(Long id, String email) {
         Utilisateur utilisateur = repositoryUtilisateur.findByEmail(email);
         if (repositoryUtilisateur.existsByEmail(email)) {
-           /* if (utilisateur.getRole().equals(Role.USER_ROLE)) {
-                repositoryProbleme.deleteById(id);*/
+           if (utilisateur.getRole().equals(Role.USER_ROLE)) {
+                repositoryProbleme.deleteById(id);
                 return "Problème supprimé avec succès";
             }
-            return "Vous avez pas le droits de supprimer un problème";
-        }
+              }
+        return "Vous avez pas le droits de supprimer un problème";
+    }
 
 
     @Override
