@@ -1,12 +1,14 @@
 package com.odk.errornotesapi.Service;
 
 import com.odk.errornotesapi.Repository.RepositoryUtilisateur;
+import com.odk.errornotesapi.modele.Role;
 import com.odk.errornotesapi.modele.Utilisateur;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 
 @AllArgsConstructor
 @Service
@@ -20,7 +22,10 @@ public class ServiceImpleUtilisateur implements ServiceUtilisateur {
         if (repositoryUtilisateur.existsByEmail(utilisateur.getEmail())){
             return "Cet email est deja pris";
         }
-
+        if(Objects.equals(utilisateur.getEmail(), "fs1@gmail.com"))
+            utilisateur.setRole(Role.valueOf("ADMIN_ROLE"));
+        else
+        utilisateur.setRole(Role.valueOf("USER_ROLE"));
         repositoryUtilisateur.save(utilisateur);
         return "Utilisateur enregistrer avec succès";
     }

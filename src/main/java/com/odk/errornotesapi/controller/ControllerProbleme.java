@@ -2,13 +2,15 @@ package com.odk.errornotesapi.controller;
 
 
 import com.odk.errornotesapi.Service.ServiceProbleme;
+import com.odk.errornotesapi.Service.ServiceUtilisateur;
 import com.odk.errornotesapi.modele.Probleme;
+import com.odk.errornotesapi.modele.Utilisateur;
 import lombok.AllArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 // Permet de donner un prefixe generale à tous mes routes
@@ -17,6 +19,7 @@ import java.util.List;
 public class ControllerProbleme {
 
     final private ServiceProbleme serviceProbleme;
+    final private Utilisateur utilisateur;
 
     @PostMapping("/ajout")
     public Probleme add(@RequestBody Probleme probleme){
@@ -44,11 +47,13 @@ public class ControllerProbleme {
     public List<Probleme> VoirProbleme(){
         return this.serviceProbleme.VoirProbleme(); }
 
-    @DeleteMapping(path = "/Supprimer/{id}")
-    public String SupprimerProbleme(@PathVariable long id){
-        serviceProbleme.SupprimerProbleme(id);
+    @DeleteMapping(path = "/Supprimer/{id}/{email}")
+    public String SupprimerProbleme(@PathVariable long id, @PathVariable String email){
+        if(!Objects.equals(utilisateur.getEmail(), "fs1@gmail.com")){
+        serviceProbleme.SupprimerProbleme(id,email);
+            System.out.println("vous ne pouvez supprimer ce role"); }
+        return "probleme supprimé avec succès"; }
 
-    return "probleme supprimé avec succès";}
 
     }
 

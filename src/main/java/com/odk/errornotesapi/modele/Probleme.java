@@ -3,6 +3,7 @@ package com.odk.errornotesapi.modele;
 import io.swagger.annotations.Api;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Cascade;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.persistence.*;
@@ -24,7 +25,9 @@ public class Probleme {
     private LocalDateTime dateProbleme = LocalDateTime.now();
     @Enumerated(EnumType.STRING)
     private Etat etat;
-
+    @Cascade(org.hibernate.annotations.CascadeType.ALL)
+    @ManyToOne
+   private Utilisateur utilisateur;
 
 
 }

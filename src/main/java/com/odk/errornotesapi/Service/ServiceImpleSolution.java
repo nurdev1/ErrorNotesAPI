@@ -24,6 +24,7 @@ public class ServiceImpleSolution implements ServiceSolution {
 
     @Override
     public void supprimerSolution(Long id) {
+
         repositorySolution.deleteById(id);
     }
 

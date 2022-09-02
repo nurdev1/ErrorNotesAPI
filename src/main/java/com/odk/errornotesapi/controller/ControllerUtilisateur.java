@@ -19,7 +19,7 @@ public class ControllerUtilisateur {
         return serviceUtilisateur.Inscrire(utilisateur);
     }
     @PostMapping("/Seconnecter/{email}/{password}")
-    public String Seconnecter(@RequestBody @PathVariable String email,@RequestBody @PathVariable String password){
+    public String Seconnecter( @PathVariable String email, @PathVariable String password){
         return serviceUtilisateur.Seconnecter(email,password);
     }
     @GetMapping("/Afficher")
