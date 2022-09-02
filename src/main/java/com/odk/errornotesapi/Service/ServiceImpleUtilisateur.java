@@ -47,7 +47,7 @@ public class ServiceImpleUtilisateur implements ServiceUtilisateur {
     }
 
     @Override
-    public List<Utilisateur> Afficher(Utilisateur utilisateur) {
+    public List<Utilisateur> AfficherListe(Utilisateur utilisateur) {
         return repositoryUtilisateur.findAll();
     }
 }

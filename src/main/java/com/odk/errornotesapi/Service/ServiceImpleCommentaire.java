@@ -13,18 +13,21 @@ public class ServiceImpleCommentaire implements ServiceCommentaire {
 
    private final RepositoryCommentaire repositoryCommentaire;
     @Override
-    public Commentaire AjouterCommenaire(Commentaire commentaire) {
+    public Commentaire AjouterCommenaire(Commentaire commentaire, String email) {
+
         return repositoryCommentaire.save(commentaire);
     }
 
     @Override
     public void SupprimerCommenaire( Long id) {
+
         repositoryCommentaire.deleteById(id);
     }
 
 
     @Override
-    public List<Commentaire> Afficher() {
+    public List<Commentaire> AfficherListe() {
+
         return repositoryCommentaire.findAll();
     }
 }

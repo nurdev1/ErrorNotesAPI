@@ -5,9 +5,9 @@ import com.odk.errornotesapi.modele.Probleme;
 import java.util.List;
 
 public interface ServiceProbleme {
-    Probleme SoumettreProbleme(Probleme probleme);
+    String SoumettreProbleme(Probleme probleme, String email);
     List<Probleme> VoirProbleme();
     List<Probleme> RechercherProblemeParMot(Long id_probleme);
     void SupprimerProbleme(Long id,String email);
-    List<Probleme> Afficher();
+    List<Probleme> AfficherListe();
 }

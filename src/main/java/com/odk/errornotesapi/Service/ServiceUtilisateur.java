@@ -8,6 +8,6 @@ public interface ServiceUtilisateur {
     String Inscrire(Utilisateur utilisateur);
     String Seconnecter(String email,String password);
     String Sedeconnecter(Utilisateur utilisateur);
-    List<Utilisateur> Afficher(Utilisateur utilisateur);
+    List<Utilisateur> AfficherListe(Utilisateur utilisateur);
 
 }

@@ -23,9 +23,11 @@ public class Commentaire {
     private LocalDateTime dateCommentaire = LocalDateTime.now();
 
    @ManyToOne
+   @JoinColumn(name = "id_solution")
    private Solution solution;
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
    @ManyToOne
+    @JoinColumn(name = "id_utilisateur")
    private Utilisateur utilisateur;
 
 

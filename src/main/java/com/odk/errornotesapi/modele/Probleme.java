@@ -27,6 +27,7 @@ public class Probleme {
     private Etat etat;
     @Cascade(org.hibernate.annotations.CascadeType.ALL)
     @ManyToOne
+    @JoinColumn(name = "id_utilisateur")
    private Utilisateur utilisateur;
 
 

@@ -18,8 +18,14 @@ public class ServiceImpleProbleme implements ServiceProbleme {
     private final RepositoryUtilisateur repositoryUtilisateur;
     Utilisateur utilisateur;
     @Override
-    public Probleme SoumettreProbleme(Probleme probleme) {
-        return repositoryProbleme.save(probleme);
+    public String SoumettreProbleme(Probleme probleme, String email){
+        if (repositoryUtilisateur.existsByEmail(email)) {
+            Utilisateur utilisateur = repositoryUtilisateur.findByEmail(email);
+            probleme.setUtilisateur(utilisateur);
+            repositoryProbleme.save(probleme);
+            return "Problème ajouté avec succès";
+        }
+        return "Vous avez pas le droits d'ajouter un problème";
     }
 
     @Override
@@ -38,7 +44,7 @@ public class ServiceImpleProbleme implements ServiceProbleme {
     }
 
     @Override
-    public List<Probleme> Afficher() {
+    public List<Probleme> AfficherListe() {
         return repositoryProbleme.findAll();
     }
 

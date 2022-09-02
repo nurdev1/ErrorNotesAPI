@@ -23,8 +23,8 @@ public class ControllerUtilisateur {
         return serviceUtilisateur.Seconnecter(email,password);
     }
     @GetMapping("/Afficher")
-    public List<Utilisateur> Afficher(Utilisateur utilisateur){
-        return serviceUtilisateur.Afficher(utilisateur);
+    public List<Utilisateur> AfficherListe(Utilisateur utilisateur){
+        return serviceUtilisateur.AfficherListe(utilisateur);
     }
 
 }

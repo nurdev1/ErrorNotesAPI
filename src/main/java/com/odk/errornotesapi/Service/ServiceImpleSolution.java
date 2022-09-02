@@ -28,5 +28,10 @@ public class ServiceImpleSolution implements ServiceSolution {
         repositorySolution.deleteById(id);
     }
 
+    @Override
+    public String MettreAjour(Solution solution, long id) {
+        return null;
+    }
+
 
 }

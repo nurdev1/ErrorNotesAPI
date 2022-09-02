@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 // Permet de donner un prefixe generale à tous mes routes
-@RequestMapping(path = "/commentaire")
+@RequestMapping(path = "/Commentaire")
 public class ControllerCommentaire {
 
     private final ServiceCommentaire serviceCommentaire;
@@ -19,20 +19,22 @@ public class ControllerCommentaire {
     {
         this.serviceCommentaire=serviceCommentaire;
     }
-    @PostMapping("/ajout")
-    public Commentaire add(@RequestBody Commentaire commentaire){
-        return this.serviceCommentaire.AjouterCommenaire(commentaire);}
-    @GetMapping("/list")
-    public List<Commentaire> Afficher(){
-        return serviceCommentaire.Afficher();
+    @PostMapping("/Ajouter")
+    public Commentaire add(@RequestBody Commentaire commentaire, String email){
+        return this.serviceCommentaire.AjouterCommenaire(commentaire,email);}
+    @GetMapping("/Afficher")
+    public List<Commentaire> AfficherListe(){
+        return serviceCommentaire.AfficherListe();
     }
-    @DeleteMapping("/supprimer/{id}")
+    @DeleteMapping("/Supprimer/{id}")
     public String SupprimerCommenaire(@PathVariable(name = "id") Long id) {
 
         serviceCommentaire.SupprimerCommenaire(id);
 
         return "commentaire supprimé avec succès";
     }
+
+
 
 
 }

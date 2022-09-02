@@ -14,22 +14,22 @@ import java.util.Objects;
 
 @RestController
 // Permet de donner un prefixe generale à tous mes routes
-@RequestMapping(path = "/probleme")
+@RequestMapping(path = "/Probleme")
 @AllArgsConstructor
 public class ControllerProbleme {
 
     final private ServiceProbleme serviceProbleme;
     final private Utilisateur utilisateur;
 
-    @PostMapping("/ajout")
-    public Probleme add(@RequestBody Probleme probleme){
-        return this.serviceProbleme.SoumettreProbleme(probleme);
+    @PostMapping("/Ajouter/{email}")
+    public String add(@RequestBody Probleme probleme, @PathVariable String email){
+        return this.serviceProbleme.SoumettreProbleme(probleme,email);
     }
     @GetMapping("/ChercherAvecMotCle/{mots}")
     public List<Probleme> Chercher(@PathVariable String mots){
     //On creer un tableau pour mettre la liste des probleme a retrouver et un autre pour tous les probleme
         List<Probleme> problemesAretourner = new ArrayList<>();
-        List<Probleme> tousProblemes = serviceProbleme.Afficher();
+        List<Probleme> tousProblemes = serviceProbleme.AfficherListe();
         //on met le mot donnée dans un tableau et avec la fonction split qui permet de decouper chaque mot
         String[] tabMots = mots.split(":");
         //creation d'un objet probleme et parcour de la liste tous les problemes

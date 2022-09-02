@@ -8,4 +8,5 @@ public interface ServiceSolution {
     String soumettreSolution(Solution solution);
     List<Solution> Voirsolution();
     void supprimerSolution(Long id);
+    public String MettreAjour(Solution solution, long id);
 }
