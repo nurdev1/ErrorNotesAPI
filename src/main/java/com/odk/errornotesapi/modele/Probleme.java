@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 public class Probleme {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_probleme;
+    private Long idprobleme;
     private String titre;
     private String descriptionProbleme;
     private String technologie;

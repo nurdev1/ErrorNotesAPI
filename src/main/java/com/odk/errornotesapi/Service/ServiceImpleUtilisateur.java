@@ -23,7 +23,7 @@ public class ServiceImpleUtilisateur implements ServiceUtilisateur {
             return "Cet email est deja pris";
         }
         if(Objects.equals(utilisateur.getEmail(), "fs1@gmail.com"))
-            utilisateur.setRole(Role.valueOf("ADMIN_ROLE"));
+            utilisateur.setRole(Role.ADMIN_ROLE);
         else
         utilisateur.setRole(Role.valueOf("USER_ROLE"));
         repositoryUtilisateur.save(utilisateur);
@@ -43,6 +43,7 @@ public class ServiceImpleUtilisateur implements ServiceUtilisateur {
 
     @Override
     public String Sedeconnecter(Utilisateur utilisateur) {
+
         return null;
     }
 
@@ -50,4 +51,11 @@ public class ServiceImpleUtilisateur implements ServiceUtilisateur {
     public List<Utilisateur> AfficherListe(Utilisateur utilisateur) {
         return repositoryUtilisateur.findAll();
     }
+
+    @Override
+    public void ChangerrRole(Utilisateur utilisateur, String email) {
+
+    }
+
+
 }

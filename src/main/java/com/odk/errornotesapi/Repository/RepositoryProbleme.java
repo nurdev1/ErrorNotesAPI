@@ -11,4 +11,5 @@ public interface RepositoryProbleme extends JpaRepository<Probleme, Long> {
     @Query(value = "SELECT * from probleme;",nativeQuery = true)
     public List<Probleme> TrouverProblemeParMot();
 
+    void deleteByIdprobleme(Long idprobleme);
 }

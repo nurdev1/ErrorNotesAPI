@@ -19,17 +19,17 @@ public class ControllerCommentaire {
     {
         this.serviceCommentaire=serviceCommentaire;
     }
-    @PostMapping("/Ajouter")
-    public Commentaire add(@RequestBody Commentaire commentaire, String email){
+    @PostMapping("/Ajouter/{email}")
+    public String add(@RequestBody Commentaire commentaire, String email){
         return this.serviceCommentaire.AjouterCommenaire(commentaire,email);}
     @GetMapping("/Afficher")
     public List<Commentaire> AfficherListe(){
         return serviceCommentaire.AfficherListe();
     }
-    @DeleteMapping("/Supprimer/{id}")
-    public String SupprimerCommenaire(@PathVariable(name = "id") Long id) {
+    @DeleteMapping("/Supprimer/{id}/{email}")
+    public String SupprimerCommenaire(@PathVariable(name = "id") Long id, @PathVariable String email) {
 
-        serviceCommentaire.SupprimerCommenaire(id);
+        serviceCommentaire.SupprimerCommenaire(id,email);
 
         return "commentaire supprimé avec succès";
     }

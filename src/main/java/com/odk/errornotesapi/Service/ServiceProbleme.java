@@ -8,6 +8,6 @@ public interface ServiceProbleme {
     String SoumettreProbleme(Probleme probleme, String email);
     List<Probleme> VoirProbleme();
     List<Probleme> RechercherProblemeParMot(Long id_probleme);
-    void SupprimerProbleme(Long id,String email);
+    String SupprimerProbleme(Long id,String email);
     List<Probleme> AfficherListe();
 }
