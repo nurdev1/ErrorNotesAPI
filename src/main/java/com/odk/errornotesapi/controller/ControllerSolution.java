@@ -16,9 +16,9 @@ public class ControllerSolution {
     private final ServiceSolution serviceSolution;
 
 
-    @PostMapping("/Ajouter")
-    public String soumettreSolution(@RequestBody Solution solution){
-        return serviceSolution.soumettreSolution(solution);
+    @PostMapping("/Ajouter/{email}/{titre}")
+    public String soumettreSolution(@RequestBody Solution solution,@PathVariable String email,@PathVariable String titre){
+        return serviceSolution.soumettreSolution(solution,email,titre);
     }
     @GetMapping("/AfficherSolution")
     public List<Solution> VoirSolution(){
